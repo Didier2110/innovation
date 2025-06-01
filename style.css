@@ -90,3 +90,48 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
 }
+
+.estilizada {
+  background-color: #00272A;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: #ffffff;
+}
+.titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  color: #f29400;
+  margin-bottom: 1.5rem;
+}
+.bloque-info {
+  margin-bottom: 1.5rem;
+}
+.bloque-info h3 {
+  color: #f29400;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.bloque-info p, .bloque-info ul {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.bloque-info ul {
+  padding-left: 1.2rem;
+}
+.bloque-info ul li {
+  margin-bottom: 0.3rem;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #001A1C; /* verde oscuro profundo */
+  padding: 1rem;
+}
+
+.logo {
+  height: 60px;
+  max-width: 220px;
+}
