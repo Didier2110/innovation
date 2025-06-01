@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Innovation - Energía Solar Renovable</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Innovation</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#agenda">Agenda tu visita técnica</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <h1>Soluciones solares para un futuro sostenible</h1>
+      <p>En Innovation ofrecemos productos y asesorías para que tu hogar o empresa aprovechen la energía del sol.</p>
+    </section>
+
+    <section id="nosotros" class="seccion">
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una empresa comprometida con la transición energética, brindando soluciones eficientes con tecnología solar.</p>
+    </section>
+
+    <section id="agenda" class="seccion">
+      <h2>Agenda tu visita técnica</h2>
+      <form class="formulario" id="form-visita">
+        <input type="text" name="nombre" placeholder="Nombre completo" required />
+        <input type="email" name="correo" placeholder="Correo electrónico" required />
+        <input type="tel" name="telefono" placeholder="Número de celular" required />
+        <input type="text" name="direccion" placeholder="Dirección del lugar" required />
+        <input type="date" name="fecha" required />
+        <button type="submit">Enviar</button>
+        <p id="mensaje" style="margin-top: 1rem;"></p>
+      </form>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2>Contáctanos</h2>
+      <p>Email: contacto@innovation.com</p>
+      <p>Celular: +57 300 000 0000</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Innovation. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("form-visita").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const datos = new FormData(form);
+      fetch("guardar_visita.php", {
+        method: "POST",
+        body: datos
+      })
+      .then(res => res.text())
+      .then(data => {
+        const msg = document.getElementById("mensaje");
+        msg.innerText = data;
+        msg.style.color = "lightgreen";
+        form.reset();
+        setTimeout(() => { msg.innerText = ""; }, 4000);
+      })
+      .catch(error => {
+        const msg = document.getElementById("mensaje");
+        msg.innerText = "Hubo un error al registrar.";
+        msg.style.color = "red";
+      });
+    });
+  </script>
+</body>
+</html>
